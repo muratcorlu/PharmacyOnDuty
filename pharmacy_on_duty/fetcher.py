@@ -25,6 +25,7 @@ def smart_unicode(text):
         text = text.replace("Ä°", "İ")
         text = text.replace("Å", "ş")
         text = text.replace("Ä", "ğ")
+        text = text.replace("Å", "Ş")
 
     return text
 
@@ -83,7 +84,7 @@ def get_pharmacies_on_duty(session, district, token):
     )
 
     addresses = [smart_unicode(address.text) for address in addresses]
-    names = [name.text for name in names]
+    names = [smart_unicode(name.text) for name in names]
     phone_numbers = [phone_number.text for phone_number in phone_numbers]
     directions = [smart_unicode(direction.text) for direction in directions]
 
